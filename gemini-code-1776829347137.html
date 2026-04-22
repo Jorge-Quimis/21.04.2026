@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi niña linda</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffeef0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1;
+            max-width: 350px;
+            width: 90%;
+        }
+
+        /* Estilo para la foto */
+        .foto-perfil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* La hace circular */
+            object-fit: cover; /* Evita que la imagen se deforme */
+            border: 5px solid #ff4d6d;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+
+        .heart {
+            color: #ff4d6d;
+            font-size: 30px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.2);
+            font-size: 20px;
+            pointer-events: none;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="tu_foto.jpg" alt="Nosotros" class="foto-perfil">
+        
+        <div class="heart">❤️</div>
+        <h1>¡Eres mi persona favorita!</h1>
+        <p>
+            Cada momento a tu lado es un regalo. Gracias por ser mi apoyo, 
+            mi alegría y mi mejor aventura.
+            <br><br>
+            <strong>¡Te amo hoy y siempre!</strong>
+        </p>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('bg-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
